@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem   id="menu_crud_practicle_root" 
+                name="CRUD"
+                sequence="10"/>
+
+    <menuitem   id="menu_practicle_note"
+                name="Practicle Notes"
+                action="action_practicle_note"
+                parent="menu_crud_practicle_root"
+                sequence="10" />
+</odoo>

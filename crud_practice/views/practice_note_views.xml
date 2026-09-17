@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_practice_note_list" model="ir.ui.view">
+        <field name="name">practice.note.list</field>
+        <field name="model">practice.note</field>
+        <field name="arch" type="xml">
+            <list string="Practice Notes">
+                <field name="name"/>
+                <field name="content"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_practice_note_form" model="ir.ui.view">
+        <field name="name">practice.note.form</field>
+        <field name="model">practice.note</field>
+        <field name="arch" type="xml">
+            <form string="Practice Note">
+                <header>
+                    <!-- Button တစ်ခုစီက models/practice_note.py ထဲက
+                         Python method (action_demo_*) ကို တိုက်ရိုက်
+                         ခေါ်ပေးတယ် - button name = Python method name -->
+                    <button name="action_demo_create" type="object"
+                            string="1) Duplicate (create())"
+                            class="btn-primary"/>
+                    <button name="action_demo_write" type="object"
+                            string="2) Add Review Note (write())"
+                            class="btn-secondary"/>
+                    <button name="action_demo_read" type="object"
+                            string="3) Show Info (read())"
+                            class="btn-secondary"/>
+                    <button name="action_demo_unlink" type="object"
+                            string="4) Delete (unlink())"
+                            class="btn-danger"
+                            confirm="ဒီ note ကို အပြီးတိုင် ဖျက်ချင်တာ သေချာပါသလား?"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="content"/>
+                    </group>
+                    <group>
+                        <field name="last_read_result"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_practice_note" model="ir.actions.act_window">
+        <field name="name">Practice Notes</field>
+        <field name="res_model">practice.note</field>
+        <field name="view_mode">list,form</field>
+        <!-- record list ဗလာဖြစ်ရင် user ကို ဘာလုပ်ရမလဲ hint ပြပေးတာ -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Note အသစ်တစ်ခု ဖန်တီးပြီး create/write/read/unlink
+                button တွေကို practice လုပ်ကြည့်ပါ!
+            </p>
+        </field>
+    </record>
+
+</odoo>

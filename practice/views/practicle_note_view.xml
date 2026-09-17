@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_practicle_note_list" model="ir.ui.view">
+        <field name="name">practicle.note.list</field>
+        <field name="model">practicle.note</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="content" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_practicle_note_form" model="ir.ui.view">
+        <field name="name">practicle.note.form</field>
+        <field name="model">practicle.note</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_create" type="object" string="Create" class="btn-primary"/>
+                    <button name="action_write" type="object" string="Update" class="btn-primary" />
+                    <button name="action_read" type="object" string="Read" class="btn-primary" />
+                    <button name="action_delete" type="object" string="Delete" class="btn-danger" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>                                    
+                            <field name="name"/>
+                            <field name="content" />
+                        </group>
+                        <group>
+                            <field name="last_read_result"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_practicle_note" model="ir.actions.act_window">
+        <field name="name">Practicle Notes</field>
+        <field name="res_model">practicle.note</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first record
+            </p>
+        </field>
+    </record>
+</odoo>
